@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Git下使用Hexo+Github搭建个人博客 | Hexo</title>
+  <title>Git下使用Hexo+Github搭建个人博客 | BieberBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="前言Hexo 是一个快速、简洁且高效的博客框架。开发起来也是非常的方便简单。但是！！！前提要先要会使用Git初始化1.安装Node.js &amp;emsp;&amp;emsp;去 Node.js 官网下载相应安装包，一路安装即可。 2.安装Git  &amp;emsp;&amp;emsp;去 Git 官网下载相应的安装包，一路安装即可。 注册Github账号并新建仓库  &amp;emsp;&amp;emsp;去 Github 官网注册一个账">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git下使用Hexo+Github搭建个人博客">
 <meta property="og:url" content="http://yoursite.com/2019/07/13/Git下使用Hexo-Github搭建个人博客/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="BieberBlog">
 <meta property="og:description" content="前言Hexo 是一个快速、简洁且高效的博客框架。开发起来也是非常的方便简单。但是！！！前提要先要会使用Git初始化1.安装Node.js &amp;emsp;&amp;emsp;去 Node.js 官网下载相应安装包，一路安装即可。 2.安装Git  &amp;emsp;&amp;emsp;去 Git 官网下载相应的安装包，一路安装即可。 注册Github账号并新建仓库  &amp;emsp;&amp;emsp;去 Github 官网注册一个账">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-14T06:22:47.624Z">
+<meta property="og:updated_time" content="2019-07-14T07:18:08.079Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git下使用Hexo+Github搭建个人博客">
 <meta name="twitter:description" content="前言Hexo 是一个快速、简洁且高效的博客框架。开发起来也是非常的方便简单。但是！！！前提要先要会使用Git初始化1.安装Node.js &amp;emsp;&amp;emsp;去 Node.js 官网下载相应安装包，一路安装即可。 2.安装Git  &amp;emsp;&amp;emsp;去 Git 官网下载相应的安装包，一路安装即可。 注册Github账号并新建仓库  &amp;emsp;&amp;emsp;去 Github 官网注册一个账">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="BieberBlog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -58,8 +58,6 @@
 			<ul>
 			
 				<li><a href="/">主页</a></li>
-	        
-				<li><a href="/tags/随笔/">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -113,8 +111,6 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -133,9 +129,7 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
-		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 100%"><a href="/">主页</a></li>
 		        
 				</ul>
 			</nav>
@@ -173,17 +167,31 @@
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><pre><code>Hexo 是一个快速、简洁且高效的博客框架。开发起来也是非常的方便简单。但是！！！前提要先要会使用Git</code></pre><h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><h4 id="1-安装Node-js"><a href="#1-安装Node-js" class="headerlink" title="1.安装Node.js"></a>1.安装Node.js</h4><p> &emsp;&emsp;去 <a href="https://git-scm.com/downloads/" target="_blank" rel="noopener">Node.js</a> 官网下载相应安装包，一路安装即可。</p>
 <h4 id="2-安装Git"><a href="#2-安装Git" class="headerlink" title="2.安装Git"></a>2.安装Git</h4><p>  &emsp;&emsp;去 <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git</a> 官网下载相应的安装包，一路安装即可。</p>
 <h2 id="注册Github账号并新建仓库"><a href="#注册Github账号并新建仓库" class="headerlink" title="注册Github账号并新建仓库"></a>注册Github账号并新建仓库</h2><p>  &emsp;&emsp;去 <a href="https://github.com/" target="_blank" rel="noopener">Github</a> 官网注册一个账号，然后新建一个仓库。</p>
-<p>  &emsp;&emsp;需要注意的是新创建的仓库的名字，必须是 <strong><font style="color:#FF4500;">username.github.io</font></strong> 。比如我的username是Bieber，那么新创建的仓库的名字便是Bieber.github.io。</p>
-<h2 id="配置SSH-Key"><a href="#配置SSH-Key" class="headerlink" title="配置SSH Key"></a>配置SSH Key</h2><p> &emsp;&emsp;这一步不是必须的，配置SSH Key的话之后每次更新博客就不用都输入用户名和密码，可以方便一些。</p>
-<p> 1.通过Git Bash查看本机上是否已经存在SSH Key</p>
-<pre><code>$ cd .ssh</code></pre><p> 2.创建一个SSH Key</p>
-<pre><code>$ ssh-keygen -t rsa -C &quot;1738891844@qq.com&quot;</code></pre><p> 3.将SSH Key添加到Github中<br>   &emsp;&emsp;创建完成之后可以通过C:\Users\Administrator文件中去查看.ssh文件夹下的id_rsa.pub打开该文件，复制里面的文本。<br>       &emsp;&emsp;再登录GieHub，点击右上角头像右边的三角图标，点击Settings，然后在左边菜单栏点击SSH and GPG keys，点击New SSH key，Title 随便填一个，在Key栏填入你复制的内容，点击Add SSH key，就添加成功了。</p>
-<p> 4.检验SSH Key是否配置成功</p>
-<p>  &ensp;&ensp;在终端窗口（Git Bash）中输入以下命令：</p>
-<pre><code>$ ssh -T git@github.com</code></pre><p>&ensp;&ensp;如果出现：Are you sure you want to continue connecting (yes/no)? </p>
-<p>&ensp;&ensp;再输入yes再按回车，如果最后出现：Hi username! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
-<p>   就说明你的SSH Key配置成功了。</p>
-
+<p>  &emsp;&emsp;需要注意的是新创建的仓库的名字，必须是 <strong><font style="color:#FF4500;">username.github.io</font></strong> 。比如我的username是Bieber，那么新创建的仓库的名字便是Bieber.github.io。<br>  <br><a id="more"></a></p>
+<h2 id="配置SSH-Key"><a href="#配置SSH-Key" class="headerlink" title="配置SSH Key"></a>配置SSH Key</h2><p>这一步不是必须的，配置SSH Key的话之后每次更新博客就不用都输入用户名和密码，可以方便一些。</p>
+<h4 id="1-通过Git-Bash查看本机上是否已经存在SSH-Key"><a href="#1-通过Git-Bash查看本机上是否已经存在SSH-Key" class="headerlink" title="1.通过Git Bash查看本机上是否已经存在SSH Key"></a>1.通过Git Bash查看本机上是否已经存在SSH Key</h4><pre><code>$ cd .ssh</code></pre><h4 id="2-创建一个SSH-Key"><a href="#2-创建一个SSH-Key" class="headerlink" title="2.创建一个SSH Key"></a>2.创建一个SSH Key</h4><pre><code>$ ssh-keygen -t rsa -C &quot;1738891844@qq.com&quot;</code></pre><h4 id="3-将SSH-Key添加到Github中"><a href="#3-将SSH-Key添加到Github中" class="headerlink" title="3.将SSH Key添加到Github中"></a>3.将SSH Key添加到Github中</h4><p>   &emsp;&emsp;创建完成之后可以通过C:\Users\Administrator文件中去查看.ssh文件夹下的id_rsa.pub打开该文件，复制里面的文本。<br>       &emsp;&emsp;再登录GieHub，点击右上角头像右边的三角图标，点击Settings，然后在左边菜单栏点击SSH and GPG keys，点击New SSH key，Title 随便填一个，在Key栏填入你复制的内容，点击Add SSH key，就添加成功了。</p>
+<h4 id="4-检验SSH-Key是否配置成功"><a href="#4-检验SSH-Key是否配置成功" class="headerlink" title="4.检验SSH Key是否配置成功"></a>4.检验SSH Key是否配置成功</h4><p>  &ensp;&ensp;在终端输入以下命令：</p>
+<pre><code>$ ssh -T git@github.com</code></pre><p>&ensp;&ensp;如果出现：</p>
+<pre><code>Are you sure you want to continue connecting (yes/no)? </code></pre><p>&ensp;&ensp;再输入yes再按回车，如果最后出现：</p>
+<pre><code>Hi username! You&apos;ve successfully authenticated, but GitHub does not provide shell acces.&amp;ensp;</code></pre><p>&ensp;&ensp;就说明你的SSH Key配置成功了。</p>
+<h2 id="部署Hexo"><a href="#部署Hexo" class="headerlink" title="部署Hexo"></a>部署Hexo</h2><h4 id="1-先在一个磁盘中创建一个文件夹，比如在E盘中创建Hexo文件夹"><a href="#1-先在一个磁盘中创建一个文件夹，比如在E盘中创建Hexo文件夹" class="headerlink" title="1.先在一个磁盘中创建一个文件夹，比如在E盘中创建Hexo文件夹"></a>1.先在一个磁盘中创建一个文件夹，比如在E盘中创建Hexo文件夹</h4><h4 id="2-在该文件夹中右击选择Git-Bash-Here进入，再使用npm命令来安装Hexo"><a href="#2-在该文件夹中右击选择Git-Bash-Here进入，再使用npm命令来安装Hexo" class="headerlink" title="2.在该文件夹中右击选择Git Bash Here进入，再使用npm命令来安装Hexo"></a>2.在该文件夹中右击选择Git Bash Here进入，再使用npm命令来安装Hexo</h4><pre><code>$ npm install -g hexo</code></pre><h4 id="3-初始化Hexo"><a href="#3-初始化Hexo" class="headerlink" title="3.初始化Hexo"></a>3.初始化Hexo</h4><pre><code>$ hexo init</code></pre><p>&ensp;&ensp;该命令会在目标文件夹内建立网站所需要的所有文件</p>
+<h4 id="4-安装依赖包"><a href="#4-安装依赖包" class="headerlink" title="4.安装依赖包"></a>4.安装依赖包</h4><pre><code>$ npm install</code></pre><p>&ensp;&ensp;到这里本地博客就搭建好了。</p>
+<h4 id="5-生成静态文件资源"><a href="#5-生成静态文件资源" class="headerlink" title="5.生成静态文件资源"></a>5.生成静态文件资源</h4><pre><code>$ hexo g</code></pre><h4 id="6-启动服务"><a href="#6-启动服务" class="headerlink" title="6.启动服务"></a>6.启动服务</h4><pre><code>$ hexo s</code></pre><p>&ensp;&ensp;在浏览器输入<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> （默认端口号为4000）就可以进行查看了。</p>
+<p>&ensp;&ensp;更改端口：</p>
+<pre><code>$ hexo server -p 5000（端口号）</code></pre><h2 id="同步本地博客到Github"><a href="#同步本地博客到Github" class="headerlink" title="同步本地博客到Github"></a>同步本地博客到Github</h2><h4 id="1-编辑自己创建的本地博客文件夹中的-config-yml中的deploy节点"><a href="#1-编辑自己创建的本地博客文件夹中的-config-yml中的deploy节点" class="headerlink" title="1.编辑自己创建的本地博客文件夹中的_config.yml中的deploy节点"></a>1.编辑自己创建的本地博客文件夹中的_config.yml中的deploy节点</h4><pre><code>deploy:
+    type: git
+    repo: git@github.com:Bieber/Bieber.github.io.git
+    branch: master</code></pre><p>&ensp;&ensp;注意：repo为这种形式的是配置了SSH Key之后的，如果没有配置则使用Https形式的地址。</p>
+<h4 id="2-为了能够使Hexo部署到GitHub上，需要安装一个插件"><a href="#2-为了能够使Hexo部署到GitHub上，需要安装一个插件" class="headerlink" title="2.为了能够使Hexo部署到GitHub上，需要安装一个插件"></a>2.为了能够使Hexo部署到GitHub上，需要安装一个插件</h4><pre><code>$ npm install hexo-deployer-git --save</code></pre><h4 id="3-然后输入以下命令"><a href="#3-然后输入以下命令" class="headerlink" title="3.然后输入以下命令"></a>3.然后输入以下命令</h4><pre><code>$ hexo c        //清空缓存
+$ hexo g        //生成静态文件资源
+$ hexo d        //部署到GitHub</code></pre><p>&ensp;&ensp;在浏览器输入（你的用户名.github.io）就可以访问你的博客了。</p>
+<h2 id="配置主题"><a href="#配置主题" class="headerlink" title="配置主题"></a>配置主题</h2><h4 id="1-用git-bash，进入到博客的本地目录中，或者直接在你博客的本地目录直接右击git-bash"><a href="#1-用git-bash，进入到博客的本地目录中，或者直接在你博客的本地目录直接右击git-bash" class="headerlink" title="1.用git bash，进入到博客的本地目录中，或者直接在你博客的本地目录直接右击git bash"></a>1.用git bash，进入到博客的本地目录中，或者直接在你博客的本地目录直接右击git bash</h4><h4 id="2-使用clone目录克隆想要的主题下载下来"><a href="#2-使用clone目录克隆想要的主题下载下来" class="headerlink" title="2.使用clone目录克隆想要的主题下载下来"></a>2.使用clone目录克隆想要的主题下载下来</h4><p>&ensp;&ensp;例如：</p>
+<pre><code>$ git clone https://github.com/theme-next/hexo-theme-next themes/next</code></pre><h4 id="3-克隆完成后，打开当前目录下的“-config-yml”配置文件"><a href="#3-克隆完成后，打开当前目录下的“-config-yml”配置文件" class="headerlink" title="3.克隆完成后，打开当前目录下的“_config.yml”配置文件"></a>3.克隆完成后，打开当前目录下的“_config.yml”配置文件</h4><p>&ensp;&ensp;找到theme的配置选项，一般在文件的最后。之后，将theme选项配置为我们新下载好的next主题即可。（“：”冒号之后空格不可少）</p>
+<h4 id="4-回到git-bash中启动服务"><a href="#4-回到git-bash中启动服务" class="headerlink" title="4.回到git bash中启动服务"></a>4.回到git bash中启动服务</h4><pre><code>$ hexo s</code></pre><p>&ensp;&ensp;在浏览器中输入localhost:4000查看。</p>
+<h4 id="5-在本地查看无误之后，输入生成和发布命令-就可已将新主题发布到自己的博客网站上了"><a href="#5-在本地查看无误之后，输入生成和发布命令-就可已将新主题发布到自己的博客网站上了" class="headerlink" title="5.在本地查看无误之后，输入生成和发布命令,就可已将新主题发布到自己的博客网站上了"></a>5.在本地查看无误之后，输入生成和发布命令,就可已将新主题发布到自己的博客网站上了</h4><pre><code>$ hexo c
+$ hexo g
+$ hexo d</code></pre><p>&ensp;&ensp;然后在浏览器输入（你的用户名.github.io）就可以访问你最新的博客了。</p>
+<h4 id="6-还可以去Hexo官网主题中去找更多好看的主题"><a href="#6-还可以去Hexo官网主题中去找更多好看的主题" class="headerlink" title="6.还可以去Hexo官网主题中去找更多好看的主题"></a>6.还可以去<a href="https://hexo.io/themes/" target="_blank" rel="noopener">Hexo官网主题</a>中去找更多好看的主题</h4>
       
 
       
@@ -297,6 +305,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化"><span class="toc-number">2.</span> <span class="toc-text">初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-安装Node-js"><span class="toc-number">2.0.1.</span> <span class="toc-text">1.安装Node.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-安装Git"><span class="toc-number">2.0.2.</span> <span class="toc-text">2.安装Git</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注册Github账号并新建仓库"><span class="toc-number">3.</span> <span class="toc-text">注册Github账号并新建仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置SSH-Key"><span class="toc-number">4.</span> <span class="toc-text">配置SSH Key</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-通过Git-Bash查看本机上是否已经存在SSH-Key"><span class="toc-number">4.0.1.</span> <span class="toc-text">1.通过Git Bash查看本机上是否已经存在SSH Key</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-创建一个SSH-Key"><span class="toc-number">4.0.2.</span> <span class="toc-text">2.创建一个SSH Key</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-将SSH-Key添加到Github中"><span class="toc-number">4.0.3.</span> <span class="toc-text">3.将SSH Key添加到Github中</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-检验SSH-Key是否配置成功"><span class="toc-number">4.0.4.</span> <span class="toc-text">4.检验SSH Key是否配置成功</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署Hexo"><span class="toc-number">5.</span> <span class="toc-text">部署Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-先在一个磁盘中创建一个文件夹，比如在E盘中创建Hexo文件夹"><span class="toc-number">5.0.1.</span> <span class="toc-text">1.先在一个磁盘中创建一个文件夹，比如在E盘中创建Hexo文件夹</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-在该文件夹中右击选择Git-Bash-Here进入，再使用npm命令来安装Hexo"><span class="toc-number">5.0.2.</span> <span class="toc-text">2.在该文件夹中右击选择Git Bash Here进入，再使用npm命令来安装Hexo</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-初始化Hexo"><span class="toc-number">5.0.3.</span> <span class="toc-text">3.初始化Hexo</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-安装依赖包"><span class="toc-number">5.0.4.</span> <span class="toc-text">4.安装依赖包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-生成静态文件资源"><span class="toc-number">5.0.5.</span> <span class="toc-text">5.生成静态文件资源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-启动服务"><span class="toc-number">5.0.6.</span> <span class="toc-text">6.启动服务</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#同步本地博客到Github"><span class="toc-number">6.</span> <span class="toc-text">同步本地博客到Github</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-编辑自己创建的本地博客文件夹中的-config-yml中的deploy节点"><span class="toc-number">6.0.1.</span> <span class="toc-text">1.编辑自己创建的本地博客文件夹中的_config.yml中的deploy节点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-为了能够使Hexo部署到GitHub上，需要安装一个插件"><span class="toc-number">6.0.2.</span> <span class="toc-text">2.为了能够使Hexo部署到GitHub上，需要安装一个插件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-然后输入以下命令"><span class="toc-number">6.0.3.</span> <span class="toc-text">3.然后输入以下命令</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置主题"><span class="toc-number">7.</span> <span class="toc-text">配置主题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-用git-bash，进入到博客的本地目录中，或者直接在你博客的本地目录直接右击git-bash"><span class="toc-number">7.0.1.</span> <span class="toc-text">1.用git bash，进入到博客的本地目录中，或者直接在你博客的本地目录直接右击git bash</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-使用clone目录克隆想要的主题下载下来"><span class="toc-number">7.0.2.</span> <span class="toc-text">2.使用clone目录克隆想要的主题下载下来</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-克隆完成后，打开当前目录下的“-config-yml”配置文件"><span class="toc-number">7.0.3.</span> <span class="toc-text">3.克隆完成后，打开当前目录下的“_config.yml”配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-回到git-bash中启动服务"><span class="toc-number">7.0.4.</span> <span class="toc-text">4.回到git bash中启动服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-在本地查看无误之后，输入生成和发布命令-就可已将新主题发布到自己的博客网站上了"><span class="toc-number">7.0.5.</span> <span class="toc-text">5.在本地查看无误之后，输入生成和发布命令,就可已将新主题发布到自己的博客网站上了</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-还可以去Hexo官网主题中去找更多好看的主题"><span class="toc-number">7.0.6.</span> <span class="toc-text">6.还可以去Hexo官网主题中去找更多好看的主题</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
