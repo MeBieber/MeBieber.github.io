@@ -29,7 +29,7 @@
 <meta property="og:image" content="http://yoursite.com/images/pasted-10.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-12.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-16.png">
-<meta property="og:updated_time" content="2019-07-17T13:33:17.010Z">
+<meta property="og:updated_time" content="2019-07-17T14:16:56.915Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git下使用Hexo+Github搭建个人博客">
 <meta name="twitter:description" content="前言Hexo 是一个快速、简洁且高效的博客框架。开发起来也是非常的方便简单。初始化1.安装Node.js &amp;emsp;&amp;emsp;去 Node.js 官网下载相应安装包，一路安装即可。 2.安装Git  &amp;emsp;&amp;emsp;去 Git 官网下载相应的安装包，一路安装即可。 注册Github账号并新建仓库  &amp;emsp;&amp;emsp;去 Github 官网注册一个账号，然后新建一个仓库：    &amp;">
@@ -220,8 +220,10 @@ $ hexo d</code></pre><p>&ensp;&ensp;然后在浏览器输入（你的用户名.g
 <h2 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h2><p> &ensp;&ensp;这里使用的是Hexo Admin后台管理的方式发布文章的。</p>
 <h4 id="1-安装插件"><a href="#1-安装插件" class="headerlink" title="1.安装插件"></a>1.安装插件</h4><p> &ensp;&ensp;在Git Hash Here中输入以下命令进行安装插件：</p>
 <pre><code>npm install --save hexo-admin</code></pre><h4 id="2-启动服务"><a href="#2-启动服务" class="headerlink" title="2.启动服务"></a>2.启动服务</h4><pre><code>hexo s</code></pre><p> &ensp;&ensp;即可在浏览器中输入localhost:4000/admin中编写博文了。 <div align="center"><img src="/images/pasted-10.png" alt="upload successful"></div></p>
-<h4 id="3-在Hexo-Admin中自动部署和发布"><a href="#3-在Hexo-Admin中自动部署和发布" class="headerlink" title="3.在Hexo Admin中自动部署和发布"></a>3.在Hexo Admin中自动部署和发布</h4><p> &ensp;&ensp;先在博客的本地的目录下新建hexo-pubish.bat文件，文件内容如下：</p>
-<pre><code>hexo g -d</code></pre><p> &ensp;&ensp;编辑完毕后，在Hexo Admin后台管理中就可以点击Deploy，直接部署发布Github博客上。 <div align="center"><img src="/images/pasted-12.png" alt="upload successful"></div></p>
+<h4 id="3-在Hexo-Admin中自动部署和发布"><a href="#3-在Hexo-Admin中自动部署和发布" class="headerlink" title="3.在Hexo Admin中自动部署和发布"></a>3.在Hexo Admin中自动部署和发布</h4><p> &ensp;&ensp;先在博客的本地的目录下新建hexo-g.bat文件，文件内容如下：</p>
+<pre><code>hexo g -d</code></pre><p> &ensp;&ensp;然后在_config.yml文件中添加一条配置信息：  </p>
+<pre><code>admin:
+      deployCommand: hexo-g.bat</code></pre><p> &ensp;&ensp;编辑完毕后，在Hexo Admin后台管理中就可以点击Deploy，即可直接部署发布Github博客上。 <div align="center"><img src="/images/pasted-12.png" alt="upload successful"></div></p>
 <h4 id="4-关于Hexo-Admin插入图片"><a href="#4-关于Hexo-Admin插入图片" class="headerlink" title="4.关于Hexo Admin插入图片"></a>4.关于Hexo Admin插入图片</h4><p> &ensp;&ensp;Hexo Admin可以直接复制图片粘贴，然后自动下载到source/images目录并重命名。</p>
 <p> &ensp;&ensp;但在Windows中粘贴后会出现裂图。这时就需要手动把括号中的前后两个斜杠去掉，就能正常显示。 <div align="center"><img src="/images/pasted-16.png" alt="upload successful"></div></p>
 
