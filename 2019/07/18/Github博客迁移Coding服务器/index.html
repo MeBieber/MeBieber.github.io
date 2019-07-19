@@ -23,8 +23,10 @@
 <meta property="og:image" content="http://yoursite.com/images/pasted-26.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-4.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-21.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-23.png">
+<meta property="og:image" content="http://yoursite.com/images/pasted-24.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-22.png">
-<meta property="og:updated_time" content="2019-07-19T01:33:43.958Z">
+<meta property="og:updated_time" content="2019-07-19T02:15:28.447Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Github博客迁移至Coding服务器">
 <meta name="twitter:description" content="前言 &amp;emsp;&amp;emsp;因为github是国外的服务器所以访问的时候会比较慢。然后度娘的爬虫被github拉小黑屋了，为了提高访问量和访问速度，决定把博客迁移至coding(github共存)。  &amp;emsp;&amp;emsp;此处用的是腾讯云与 CODING 共同为开发者打造的云端工具平台。 注册腾讯云账号并新建仓库 &amp;emsp;&amp;emsp;进入腾讯云开发者平台注册账号，然后新建一个仓库：">
@@ -190,11 +192,10 @@
 <h4 id="2-配置-config-yml文件"><a href="#2-配置-config-yml文件" class="headerlink" title="2.配置_config.yml文件"></a>2.配置_config.yml文件</h4><p> &emsp;&emsp;进入到你博客的根目录下打开_config.yml文件，找到deploy节点，在repo字节点下添加一条配置信息，格式为，coding: 你的仓库地址。 <div align="center"><img src="/images/pasted-26.png" alt="upload successful"></div><br> &emsp;&emsp;以上配置了两个远程仓库地址，一个github和coding，推送的时候两个仓库都能更新。</p>
 <h2 id="新增公钥"><a href="#新增公钥" class="headerlink" title="新增公钥"></a>新增公钥</h2><h4 id="1-通过Git-Bash-Here查看本机上是否已经存在SSH-Key"><a href="#1-通过Git-Bash-Here查看本机上是否已经存在SSH-Key" class="headerlink" title="1.通过Git Bash Here查看本机上是否已经存在SSH Key"></a>1.通过Git Bash Here查看本机上是否已经存在SSH Key</h4><p>&emsp;&emsp;随便到一个地方右击进入Git Bash Here执行以下命令：</p>
 <pre><code>$ cd ~/.ssh</code></pre><p>&emsp;&emsp;如果提示:<strong>No such file or directory</strong> 去创建一个SSH Key，否则跳过以下这步。</p>
-<h4 id="2-创建一个SSH-Key"><a href="#2-创建一个SSH-Key" class="headerlink" title="2.创建一个SSH Key"></a>2.创建一个SSH Key</h4><pre><code>$ ssh-keygen -t rsa -C &quot;你的邮箱&quot;  #创建ssh密钥</code></pre><p> &emsp;&emsp;连续3次回车后，那么在你用户的文件夹下就会多了一个.ssh的文件夹。</p>
+<h4 id="2-创建一个SSH-Key"><a href="#2-创建一个SSH-Key" class="headerlink" title="2.创建一个SSH Key"></a>2.创建一个SSH Key</h4><pre><code>$ ssh-keygen -t rsa -C &quot;你的邮箱&quot;  #创建ssh密钥</code></pre><p> &emsp;&emsp;<font color="red">需要注意的是：你的邮箱要和你coding绑定的邮箱一致！</font><br> &emsp;&emsp;连续3次回车后，那么在你用户的文件夹下就会多了一个.ssh的文件夹。</p>
 <h4 id="3-将SSH-Key添加到Coding中"><a href="#3-将SSH-Key添加到Coding中" class="headerlink" title="3.将SSH Key添加到Coding中"></a>3.将SSH Key添加到Coding中</h4><p>   &emsp;&emsp;创建完成之后可以通过C:\Users\Administrator（你本机的用户名，这里是我本机的用户名）文件中去查看.ssh文件夹下的id_rsa.pub打开该文件，复制里面的文本。 <div align="center"><img src="/images/pasted-4.png" alt="upload successful"></div><br>       &emsp;&emsp;再登录Coding，在个人设置下面有个SSH公钥，然后点击新增公钥，公钥名称随便填一个，公钥内容填入你复制的内容，点击添加，就添加成功了。<div align="center"><img src="/images/pasted-21.png" alt="upload successful"></div></p>
 <h2 id="发布到Coding服务器"><a href="#发布到Coding服务器" class="headerlink" title="发布到Coding服务器"></a>发布到Coding服务器</h2><p>在你博客的根目录下右击打开Git Bash Here执行以下命令：</p>
-<pre><code>hexo g        #生成静态文件
-hexo d        #发布到Coding</code></pre><p>第一次发布的时候可能会让你登录Coding的账号进行验证，将你的用户名和密码输入即可。</p>
+<pre><code>hexo d        #发布到Coding</code></pre><p>发布的时候如果提示没有权限操作此仓库，那么就是你公钥的的问题。如果没有问题则省略以下步骤。 <div align="center"><img src="/images/pasted-23.png" alt="upload successful"></div><br>此时需要重新创建一个公钥，创建公钥的时候那个邮箱要和你coding绑定的邮箱一致。比如我coding绑定的邮箱是<a href="mailto:1738891844@qq.com" target="_blank" rel="noopener">1738891844@qq.com</a>，那么创建公钥的邮箱就是你coding绑定的邮箱。如果你之前创建过一个公钥，那么直接按y覆盖，再回车两下即可创建完成。 <div align="center"><img src="/images/pasted-24.png" alt="upload successful"></div><br>创建完之后去复制你的公钥到coding上去，再执行hexo d命令试一下。</p>
 <h2 id="开启Pages服务"><a href="#开启Pages服务" class="headerlink" title="开启Pages服务"></a>开启Pages服务</h2><p>在Coding的项目中打开Pages服务（在代码一栏下）。开启之后在浏览器中输入你的访问地址即可访问你的页面。 <div align="center"><img src="/images/pasted-22.png" alt="upload successful"></div><br>迁移完毕……</p>
 
       
@@ -458,11 +459,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">搭建博客</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">搭建博客</a>
               </li>
             
             <div class="clearfix"></div>
