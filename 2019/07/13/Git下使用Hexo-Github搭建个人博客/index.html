@@ -29,7 +29,7 @@
 <meta property="og:image" content="http://yoursite.com/images/pasted-10.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-12.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-16.png">
-<meta property="og:updated_time" content="2019-07-19T02:02:22.161Z">
+<meta property="og:updated_time" content="2019-07-19T02:23:03.763Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git下使用Hexo+Github搭建个人博客">
 <meta name="twitter:description" content="前言Hexo 是一个快速、简洁且高效的博客框架。开发起来也是非常的方便简单。初始化1.安装Node.js &amp;emsp;&amp;emsp;去 Node.js 官网下载相应安装包，一路安装即可。 2.安装Git  &amp;emsp;&amp;emsp;去 Git 官网下载相应的安装包，一路安装即可。 注册Github账号并新建仓库  &amp;emsp;&amp;emsp;去 Github 官网注册一个账号，然后新建一个仓库：">
@@ -215,7 +215,7 @@
 $ hexo g        #生成静态文件资源
 $ hexo d        #部署到GitHub</code></pre><p>&ensp;&ensp;在浏览器输入（你的用户名.github.io）就可以访问你的博客了。</p>
 <h2 id="配置主题"><a href="#配置主题" class="headerlink" title="配置主题"></a>配置主题</h2><h4 id="1-先进入你的git-bash-here"><a href="#1-先进入你的git-bash-here" class="headerlink" title="1.先进入你的git bash here"></a>1.先进入你的git bash here</h4><p>&ensp;&ensp;进入到博客的本地目录中右击git bash here即可进入。</p>
-<h4 id="2-克隆想要的主题下载下来"><a href="#2-克隆想要的主题下载下来" class="headerlink" title="2.克隆想要的主题下载下来"></a>2.克隆想要的主题下载下来</h4><p>&ensp;&ensp;使用git clone来克隆主题，例如：</p>
+<h4 id="2-克隆想要的主题下载下来"><a href="#2-克隆想要的主题下载下来" class="headerlink" title="2.克隆想要的主题下载下来"></a>2.克隆想要的主题下载下来</h4><p>&ensp;&ensp;使用git clone命令来克隆主题，例如：</p>
 <pre><code>$ git clone https://github.com/theme-next/hexo-theme-next themes/next</code></pre><h4 id="3-克隆完成后，打开当前目录下的“-config-yml”配置文件"><a href="#3-克隆完成后，打开当前目录下的“-config-yml”配置文件" class="headerlink" title="3.克隆完成后，打开当前目录下的“_config.yml”配置文件"></a>3.克隆完成后，打开当前目录下的“_config.yml”配置文件</h4><p>&ensp;&ensp;找到theme的配置选项，一般在文件的最后。之后，将theme选项配置为我们新下载好的next主题即可。（“：”冒号之后空格不可少） <div align="center"><img src="/images/pasted-9.png" alt="upload successful"></div></p>
 <h4 id="4-回到git-bash-here中启动服务"><a href="#4-回到git-bash-here中启动服务" class="headerlink" title="4.回到git bash here中启动服务"></a>4.回到git bash here中启动服务</h4><pre><code>$ hexo s</code></pre><p>&ensp;&ensp;在浏览器中输入localhost:4000查看。</p>
 <h4 id="5-在本地查看无误之后，输入生成和发布命令-就可已将新主题发布到自己的博客网站上了"><a href="#5-在本地查看无误之后，输入生成和发布命令-就可已将新主题发布到自己的博客网站上了" class="headerlink" title="5.在本地查看无误之后，输入生成和发布命令,就可已将新主题发布到自己的博客网站上了"></a>5.在本地查看无误之后，输入生成和发布命令,就可已将新主题发布到自己的博客网站上了</h4><pre><code>$ hexo c
@@ -230,7 +230,7 @@ $ hexo d</code></pre><p>&ensp;&ensp;然后在浏览器输入（你的用户名.g
 <pre><code>admin:
       deployCommand: hexo-g.bat</code></pre><p> &ensp;&ensp;编辑完毕后，在Hexo Admin后台管理中就可以点击Deploy，即可直接部署发布Github博客上。 <div align="center"><img src="/images/pasted-12.png" alt="upload successful"></div></p>
 <h4 id="4-关于Hexo-Admin插入图片"><a href="#4-关于Hexo-Admin插入图片" class="headerlink" title="4.关于Hexo Admin插入图片"></a>4.关于Hexo Admin插入图片</h4><p> &ensp;&ensp;Hexo Admin可以直接复制图片粘贴，然后自动下载到source/images目录并重命名。</p>
-<p> &ensp;&ensp;但在Windows中粘贴后会出现裂图。这时就需要手动把括号中的前后两个斜杠去掉，就能正常显示。 <div align="center"><img src="/images/pasted-16.png" alt="upload successful"></div></p>
+<p> &ensp;&ensp;直接粘贴后会出现裂图。这时就需要手动把括号中的前后两个斜杠去掉，就能正常显示。 <div align="center"><img src="/images/pasted-16.png" alt="upload successful"></div></p>
 
       
 
