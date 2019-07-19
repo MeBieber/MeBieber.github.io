@@ -24,7 +24,7 @@
 <meta property="og:image" content="http://yoursite.com/images/pasted-4.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-21.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-22.png">
-<meta property="og:updated_time" content="2019-07-18T14:12:08.865Z">
+<meta property="og:updated_time" content="2019-07-19T00:45:06.735Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Github博客迁移至Coding服务器">
 <meta name="twitter:description" content="前言 &amp;emsp;&amp;emsp;因为github是国外的服务器所以访问的时候会比较慢。然后度娘的爬虫被github拉小黑屋了，为了提高访问量和访问速度，决定把博客迁移至coding(github共存)。  &amp;emsp;&amp;emsp;此处用的是腾讯云与 CODING 共同为开发者打造的云端工具平台。 注册腾讯云账号并新建仓库 &amp;emsp;&amp;emsp;进入腾讯云开发者平台注册账号，然后新建一个仓库：">
@@ -193,8 +193,8 @@
 <h4 id="2-创建一个SSH-Key"><a href="#2-创建一个SSH-Key" class="headerlink" title="2.创建一个SSH Key"></a>2.创建一个SSH Key</h4><pre><code>$ ssh-keygen -t rsa -C &quot;你的邮箱&quot;  #创建ssh密钥</code></pre><p> &emsp;&emsp;连续3次回车后，那么在你用户的文件夹下就会多了一个.ssh的文件夹。</p>
 <h4 id="3-将SSH-Key添加到Coding中"><a href="#3-将SSH-Key添加到Coding中" class="headerlink" title="3.将SSH Key添加到Coding中"></a>3.将SSH Key添加到Coding中</h4><p>   &emsp;&emsp;创建完成之后可以通过C:\Users\Administrator（你本机的用户名，这里是我本机的用户名）文件中去查看.ssh文件夹下的id_rsa.pub打开该文件，复制里面的文本。 <div align="center"><img src="/images/pasted-4.png" alt="upload successful"></div><br>       &emsp;&emsp;再登录Coding，在个人设置下面有个SSH公钥，然后点击新增公钥，公钥名称随便填一个，公钥内容填入你复制的内容，点击添加，就添加成功了。<div align="center"><img src="/images/pasted-21.png" alt="upload successful"></div></p>
 <p>此时你还需要配置：</p>
-<pre><code>$ git config –global user.name “xxx”             #你的coding用户名，非昵称
-$ git config –global user.email “xxx@xx.com“     #填写你的coding注册邮箱</code></pre><h2 id="发布到Coding服务器"><a href="#发布到Coding服务器" class="headerlink" title="发布到Coding服务器"></a>发布到Coding服务器</h2><p>在你博客的根目录下右击打开Git Bash Here执行以下命令：</p>
+<pre><code>$ git config –global user.name &quot;xxx&quot;             #你的coding用户名，非昵称
+$ git config –global user.email &quot;xxx@xx.com&quot;     #填写你的coding注册邮箱</code></pre><h2 id="发布到Coding服务器"><a href="#发布到Coding服务器" class="headerlink" title="发布到Coding服务器"></a>发布到Coding服务器</h2><p>在你博客的根目录下右击打开Git Bash Here执行以下命令：</p>
 <pre><code>hexo g        #生成静态文件
 hexo d        #发布到Coding</code></pre><p>第一次发布的时候可能会让你登录Coding的账号进行验证，将你的用户名和密码输入即可。</p>
 <h2 id="开启Pages服务"><a href="#开启Pages服务" class="headerlink" title="开启Pages服务"></a>开启Pages服务</h2><p>在Coding的项目中打开Pages服务（在代码一栏下）。开启之后在浏览器中输入你的访问地址即可访问你的页面。 <div align="center"><img src="/images/pasted-22.png" alt="upload successful"></div><br>迁移完毕……</p>
@@ -460,11 +460,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">搭建博客</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">搭建博客</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
             
             <div class="clearfix"></div>
