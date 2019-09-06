@@ -168,9 +168,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><li>1. 打包 SpringBoot 项目</li>
-<li>2. SpringBoot 热部署</li>
-<li>3. SpringBoot 实现国际化</li>
+        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><li>打包 SpringBoot 项目</li>
+<li>SpringBoot 热部署</li>
+<li>SpringBoot 实现国际化</li>
 
 <h1 id="1-打包SpringBoot项目"><a href="#1-打包SpringBoot项目" class="headerlink" title="1.打包SpringBoot项目"></a>1.打包SpringBoot项目</h1><p>&emsp;&emsp;一般而言，打包的方式有好几种，这里介绍一种 Fat Jar 打包方式。Fat 就是肥胖的意思，这种打包方式是把整个项目的 class、配置文件和依赖的其它 jar 都打进一个大的 jar 包，你可以理解成大包嵌套小包。当然，这种情况下 Spring Boot Web 项目所需的嵌入式 Tomcat 也在包里面，也就是说，只需要这一个包就可以放到任何安装了 <strong>JRE</strong> 的机器去用 java 命令启动了。</p>
 <p>首先在 IDEA 中的 maven 项目上，打一个 Fat Jar 非常简单，从 Maven 窗口执行以下操作（一般在窗口最右边）：<div align="center"><img src="/images/pasted-41.png" alt="upload successful"></div></p>
