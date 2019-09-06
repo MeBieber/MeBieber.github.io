@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://yoursite.com/images/pasted-36.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-37.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-40.png">
-<meta property="og:updated_time" content="2019-09-05T13:35:51.364Z">
+<meta property="og:updated_time" content="2019-09-06T05:39:11.286Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Boot【快速入门】">
 <meta name="twitter:description" content="前言：什么是微服务&amp;emsp;&amp;emsp;在此之前我们先了解一下什么是微服务。微服务是现在非常主流的一种架构风格，一个大型的复杂项目，由一个或多个小型服务组成。系统中的各个小型服务可被独立部署，各个小型服务之间是松耦合的，并且这些小型服务之间以轻量级的通信协作(http)作为基础进行通信，这样的微服务器架构独立性更强、粒度更细、性能更高、安全性、可扩展性、可重用性都更高。&amp;emsp;&amp;emsp;微">
@@ -181,7 +181,7 @@
 
 
 <h2 id="SpringBoot概述"><a href="#SpringBoot概述" class="headerlink" title="SpringBoot概述"></a>SpringBoot概述</h2><p>&emsp;&emsp;是一个 Pivotal（原 Spring 团队）公司开发的框架，采用“规约大于配置”的原则，整合其他以 Spring 为核心的框架集，是框架的框架。Spring Boot 是所有基于 Spring 开发的项目的起点。Spring Boot 的设计是为了让你尽可能快的跑起来 Spring 应用程序并且尽可能减少你的配置文件。</p>
-<h3 id="什么是SpringBoot"><a href="#什么是SpringBoot" class="headerlink" title="什么是SpringBoot"></a>什么是SpringBoot</h3><p>&emsp;&emsp;它使用 “习惯优于配置” （项目中存在大量的配置，此外还内置一个习惯性的配置，让你无须）的理念让你的项目快速运行起来。它并不是什么新的框架，而是默认配置了很多框架的使用方式，就像 Maven 整合了所有的 jar 包一样，Spring Boot 整合了所有框架</p>
+<h3 id="什么是SpringBoot"><a href="#什么是SpringBoot" class="headerlink" title="什么是SpringBoot"></a>什么是SpringBoot</h3><p>&emsp;&emsp;它使用 “习惯优于配置” 的理念让你的项目快速运行起来。它并不是什么新的框架，而是默认配置了很多框架的使用方式，就像 Maven 整合了所有的 jar 包一样，Spring Boot 整合了所有框架</p>
 <h3 id="SpringBoot的四大好处"><a href="#SpringBoot的四大好处" class="headerlink" title="SpringBoot的四大好处"></a>SpringBoot的四大好处</h3><li>让编码更简单</li>
 
 <pre><code>SpringBoot 把各种依赖分类（打包）成了44 个应用 starter、1 个产品 starter、6 个替代性技术 starter。每个 starter 是相关 jar 包的集合，自动引入。</code></pre><li>让配置更简单</li>
@@ -284,7 +284,7 @@
 <p>server.port=${random.int[1024,9999]}</p>
 </blockquote>
 <h3 id="application-yml-yaml"><a href="#application-yml-yaml" class="headerlink" title="application.yml (yaml)"></a>application.yml (yaml)</h3><p>&emsp;&emsp;yml 不是一个标记语言，我们以前学过的 xml 是一个可扩展的标记语言，我们以设置端口号为例来看一下它的格式：<server><port>8011</port></server>。而 yml 不是一个标记文档，那么它的数据书写格式为：key: value， <strong>其中 value  前面一定要有空格</strong>，而且配置项的 <strong>缩进</strong>要求比较严格。如下所示。<div align="center"><img src="/images/pasted-37.png" alt="upload successful"></div></p>
-<p>1.yam 用@ConfigurationProperties 为Bean 属性注入值</p>
+<p>1.yaml 用@ConfigurationProperties 为Bean 属性注入值</p>
 <p>&emsp;&emsp;在使用 yaml 为属性赋值时，如果属性是 Set/List/ 数组时，我们使用[] 中括号。如果属性是 Map  集合/ 对象类型的属性时，要使用{} 大括号。</p>
 <p>1) 定义两上实体类，Student、Pet。<br>&emsp;&emsp;创建一个 entity 包，在 entity 包下创建这两个类。</p>
 <blockquote>
