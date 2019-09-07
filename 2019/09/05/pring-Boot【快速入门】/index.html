@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://yoursite.com/images/pasted-36.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-37.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-40.png">
-<meta property="og:updated_time" content="2019-09-06T05:39:11.286Z">
+<meta property="og:updated_time" content="2019-09-07T14:33:29.416Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Boot【快速入门】">
 <meta name="twitter:description" content="前言：什么是微服务&amp;emsp;&amp;emsp;在此之前我们先了解一下什么是微服务。微服务是现在非常主流的一种架构风格，一个大型的复杂项目，由一个或多个小型服务组成。系统中的各个小型服务可被独立部署，各个小型服务之间是松耦合的，并且这些小型服务之间以轻量级的通信协作(http)作为基础进行通信，这样的微服务器架构独立性更强、粒度更细、性能更高、安全性、可扩展性、可重用性都更高。&amp;emsp;&amp;emsp;微">
@@ -242,7 +242,7 @@
 <p>1.@AutoConfigurationPackage</p>
 <p>&emsp;&emsp;要想定义一个能接收并处理请求的控制器，那么我们是要到 springmvc-servlet.xml 中使用标签&lt;context:component:scan base-package=” 包名” /&gt;将controller 包路径放到这个扫描器里面。</p>
 <p>&emsp;&emsp;而 SpringBoot 便没有进行如此配置，这是因为我们 SpringBoot 使用了@AutoConfiguractionPackage  注解。它 实现了自动将该包放入到了扫描器里面。</p>
-<p>2.@Import<br>&emsp;&emsp;<div align="center"><img src="/images/pasted-36.png" alt="upload successful"></div>&emsp;&emsp;AutoConfigurationImportSelector 翻译成中文是”自动配置导入选择器”，即这个选择器将 可以实现将 将SpringBoot 项目中所有第三方依赖采用自动配置的方式导入进项目来。(注：我们自己写的代码是通过@AutoConfigurationPackage 注解引入项目。)</p>
+<p>2.@Import<br>&emsp;&emsp;<div align="center"><img src="/images/pasted-36.png" alt="upload successful"></div>&emsp;&emsp;AutoConfigurationImportSelector 翻译成中文是”自动配置导入选择器”，即这个选择器将 可以实现将 SpringBoot 项目中所有第三方依赖采用自动配置的方式导入进项目来。(注：我们自己写的代码是通过@AutoConfigurationPackage 注解引入项目。)</p>
 <h2 id="配置文件格式及使用"><a href="#配置文件格式及使用" class="headerlink" title="配置文件格式及使用"></a>配置文件格式及使用</h2><p>&emsp;&emsp;SpringBoot 提供了两种默认的全局配置文件分别是：application.properties和application.yml</p>
 <h3 id="application-properties"><a href="#application-properties" class="headerlink" title="application.properties"></a>application.properties</h3><p>&emsp;&emsp;普通配置。application.properties 文件中数据的存储格式为 key-value。如server.port=8011，这里的 key 为 server.port，value 为 8011。</p>
 <p>1.常用系统配置属性</p>
