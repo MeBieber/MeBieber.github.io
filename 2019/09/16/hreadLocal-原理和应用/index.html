@@ -9,6 +9,7 @@
   <title>ThreadLocal的简单使用及实现的原理 | Bieber的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="ThreadLocal是什么&amp;emsp;&amp;emsp;Threadlocal（本地线程）变量，线程局部变量，同一个 Threadlocal 所包含的对象，在不同的 Thread 中有不同的副本，其作用是为了线程安全。当使用ThreadLocal维护变量时，ThreadLocal为每个使用该变量的线程提供独立的变量副本，所以每一个线程都可以独立地改变自己的副本，而不会影响其它线程所对应的副本。这句话怎">
+<meta name="keywords" content="ThreadLocal">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ThreadLocal的简单使用及实现的原理">
 <meta property="og:url" content="http://yoursite.com/2019/09/16/hreadLocal-原理和应用/index.html">
@@ -16,7 +17,7 @@
 <meta property="og:description" content="ThreadLocal是什么&amp;emsp;&amp;emsp;Threadlocal（本地线程）变量，线程局部变量，同一个 Threadlocal 所包含的对象，在不同的 Thread 中有不同的副本，其作用是为了线程安全。当使用ThreadLocal维护变量时，ThreadLocal为每个使用该变量的线程提供独立的变量副本，所以每一个线程都可以独立地改变自己的副本，而不会影响其它线程所对应的副本。这句话怎">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/pasted-55.png">
-<meta property="og:updated_time" content="2019-09-30T09:13:24.175Z">
+<meta property="og:updated_time" content="2019-09-30T09:18:37.041Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ThreadLocal的简单使用及实现的原理">
 <meta name="twitter:description" content="ThreadLocal是什么&amp;emsp;&amp;emsp;Threadlocal（本地线程）变量，线程局部变量，同一个 Threadlocal 所包含的对象，在不同的 Thread 中有不同的副本，其作用是为了线程安全。当使用ThreadLocal维护变量时，ThreadLocal为每个使用该变量的线程提供独立的变量副本，所以每一个线程都可以独立地改变自己的副本，而不会影响其它线程所对应的副本。这句话怎">
@@ -165,7 +166,7 @@
 
         
         <a href="/2019/09/16/hreadLocal-原理和应用/" class="archive-article-date">
-  	<time datetime="2019-09-16T09:08:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-16</time>
+  	<time datetime="2019-09-16T09:08:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-16</time>
 </a>
         
       </header>
@@ -236,6 +237,17 @@ A</code></pre><p>从上面的输出结果来看，虽然在不同线程中访问
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ThreadLocal</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -457,6 +469,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Spring Boot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ThreadLocal</a>
               </li>
             
             <div class="clearfix"></div>
