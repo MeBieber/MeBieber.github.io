@@ -6,15 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | Bieber的博客</title>
+  <title>ThreadLocal的简单使用及实现的原理 | Bieber的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Bieber的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="ThreadLocal是什么&amp;emsp;&amp;emsp;Threadlocal（本地线程）变量，线程局部变量，同一个 Threadlocal 所包含的对象，在不同的 Thread 中有不同的副本，其作用是为了线程安全。当使用ThreadLocal维护变量时，ThreadLocal为每个使用该变量的线程提供独立的变量副本，所以每一个线程都可以独立地改变自己的副本，而不会影响其它线程所对应的副本。这句话怎">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ThreadLocal的简单使用及实现的原理">
+<meta property="og:url" content="http://yoursite.com/2019/09/16/hreadLocal-原理和应用/index.html">
 <meta property="og:site_name" content="Bieber的博客">
+<meta property="og:description" content="ThreadLocal是什么&amp;emsp;&amp;emsp;Threadlocal（本地线程）变量，线程局部变量，同一个 Threadlocal 所包含的对象，在不同的 Thread 中有不同的副本，其作用是为了线程安全。当使用ThreadLocal维护变量时，ThreadLocal为每个使用该变量的线程提供独立的变量副本，所以每一个线程都可以独立地改变自己的副本，而不会影响其它线程所对应的副本。这句话怎">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/pasted-55.png">
+<meta property="og:updated_time" content="2019-09-30T09:13:24.175Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bieber的博客">
+<meta name="twitter:title" content="ThreadLocal的简单使用及实现的原理">
+<meta name="twitter:description" content="ThreadLocal是什么&amp;emsp;&amp;emsp;Threadlocal（本地线程）变量，线程局部变量，同一个 Threadlocal 所包含的对象，在不同的 Thread 中有不同的副本，其作用是为了线程安全。当使用ThreadLocal维护变量时，ThreadLocal为每个使用该变量的线程提供独立的变量副本，所以每一个线程都可以独立地改变自己的副本，而不会影响其它线程所对应的副本。这句话怎">
+<meta name="twitter:image" content="http://yoursite.com/images/pasted-55.png">
   
     <link rel="alternative" href="/atom.xml" title="Bieber的博客" type="application/atom+xml">
   
@@ -146,243 +152,203 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-hreadLocal-原理和应用" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      ThreadLocal的简单使用及实现的原理
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/16/hreadLocal-原理和应用/" class="archive-article-date">
+
+        
+        <a href="/2019/09/16/hreadLocal-原理和应用/" class="archive-article-date">
   	<time datetime="2019-09-16T09:08:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-16</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/16/hreadLocal-原理和应用/">ThreadLocal的简单使用及实现的原理</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="ThreadLocal是什么"><a href="#ThreadLocal是什么" class="headerlink" title="ThreadLocal是什么"></a>ThreadLocal是什么</h1><p>&emsp;&emsp;Threadlocal（本地线程）变量，<strong>线程局部变量</strong>，同一个 Threadlocal 所包含的对象，在不同的 Thread 中有不同的副本，其作用是为了线程安全。当使用ThreadLocal维护变量时，ThreadLocal为每个使用该变量的线程提供独立的变量副本，所以每一个线程都可以独立地改变自己的副本，而不会影响其它线程所对应的副本。这句话怎么理解呢？看下图：<div align="center"><img src="/images/pasted-55.png" alt="upload successful"></div></p>
+<a id="more"></a>
 
-        <div class="article-info info-on-right">
-          
-          
+<p>&emsp;&emsp;就相当于ThreadLocal对象是个存取局部变量的容器，线程A（我）从容器拿了一个ThreadLocal的副本并赋值A，线程B（你）也拿了一个副本然后使用get()方法获取值时为null。从中就可以看出：你拿你的我拿我的，咱们互不干扰，互不影响，作用就是能用来<strong>维护本线程的变量</strong>。</p>
+<p>&emsp;&emsp;什么是用来维护本线程的变量呢？就把ThreadLocal比如超市里的那种暂存箱，我拿着钥匙开相应的门放东西进去，你也只能拿你的钥匙去开你对应的门，咱们两个互不相干，这样就能做到分开维护。</p>
+<h1 id="使用Demo"><a href="#使用Demo" class="headerlink" title="使用Demo"></a>使用Demo</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">        final ThreadLocal&lt;String&gt; threadLocal1 = new ThreadLocal&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        new Thread(new Runnable() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void run() &#123;</span><br><span class="line">                threadLocal1.set(&quot;A&quot;);</span><br><span class="line">                try &#123;</span><br><span class="line">                    Thread.sleep(1000);</span><br><span class="line">                &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(Thread.currentThread().getName());</span><br><span class="line">                System.out.println(threadLocal1.get());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        new Thread(new Runnable() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void run() &#123;</span><br><span class="line">                threadLocal1.set(&quot;B&quot;);</span><br><span class="line">                try &#123;</span><br><span class="line">                    Thread.sleep(1000);</span><br><span class="line">                &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(Thread.currentThread().getName());</span><br><span class="line">                System.out.println(threadLocal1.get());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>结果如下：</p>
+<pre><code>Thread-1
+B
+Thread-0
+A</code></pre><p>从上面的输出结果来看，虽然在不同线程中访问的是同一个ThreadLocal对象，但是它们通过ThreadLocal来获取到的值却是不一样的，这就是ThreadLocal的奇妙之处。</p>
+<h1 id="Threadlocal实现原理"><a href="#Threadlocal实现原理" class="headerlink" title="Threadlocal实现原理"></a>Threadlocal实现原理</h1><p>ThreadLocal是如何实现当前线程取的值就是当前线程的值呢？它提供了set方法进行存值，我们先去看看源码：</p>
+<ul>
+<li>set(T t)：设置当前线程对应的变量</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public void set(T value) &#123;</span><br><span class="line">    //获取当前线程</span><br><span class="line">    Thread t = Thread.currentThread();</span><br><span class="line">    //获取当前线程的ThreadLocalMap</span><br><span class="line">    ThreadLocalMap map = t.threadLocals;</span><br><span class="line">    if (map != null)</span><br><span class="line">        //将数据放入ThreadLocalMap中，key是当前ThreadLocal对象，值是我们传入的value</span><br><span class="line">        map.set(this, value);</span><br><span class="line">    else</span><br><span class="line">        //初始化ThreadLocalMap，并以当前ThreadLocal对象为Key，value为值存入map中</span><br><span class="line">        t.threadLocals = new ThreadLocalMap(this, value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;从set()方法中可以看出：它在存值的时候使用了一个内部静态map（ThreadLocalMap）来进行存取值的，key是当前线程，value是需要保存的值，value可以是任何类型。</p>
+<p>&emsp;&emsp;基于上面这种设计，每个线程其实根本无法获取到其他线程的key，由于是内部静态map，不提供遍历和查询的接口，也确保了其他线程只能根据key获取，所以，每个线程只能取到自己线程的value。</p>
+<h1 id="ThreadLocal使用场景举例"><a href="#ThreadLocal使用场景举例" class="headerlink" title="ThreadLocal使用场景举例"></a>ThreadLocal使用场景举例</h1><p>举例1：联想一下服务器（例如tomcat）处理请求的时候，会从线程池中取一条出来进行处理请求，如果想把每个请求的用户信息保存到一个静态变量里以便在处理请求过程中随时获取到用户信息。这时候可以建一个拦截器，请求到来时，把用户信息存到一个静态ThreadLocal变量中，那么在请求处理过程中可以随时从静态ThreadLocal变量获取用户信息。一般情况下还是建议直接用session。</p>
+<p>举例2：Spring 的事务实现也借助了 ThreadLocal 类。Spring 会从数据库连接池中获得一个 connection，然会把connection 放进 ThreadLocal 中，也就和线程绑定了，事务需要提交或者回滚，只要从 ThreadLocal 中拿到connection 进行操作，从而可以达到一致性。</p>
+<p>举例3：假如要将一个方法A中的一个count参数传递到一个方法D中使用，但是因为业务的需求，方法A并不能直接调用方法D，因此方法A要先调用方法B并将count参数传入，然后方法B调用方法C并将count参数传入，最后再由方法C调用方法D并将count参数传入才能对这个count参数进行操作。如果要是调用的方法多了呢？这个时候就可以使用ThreadLocal早早的在方法A中将count值存入，哪个方法需要的时候就可以直接使用，而不用每次调用方法都带上count这个参数。</p>
+<h1 id="小结："><a href="#小结：" class="headerlink" title="小结："></a>小结：</h1><p>ThreadLocal其作用是为了保护线程安全的，并且只能在当前线程才能拿到当前线程的值。</p>
+<p>ThreadLocal在日常工作中用得不多，但是在框架（如Spring）中是个基础性的技术，在事务管理，AOP等领域都能找到。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我喝奶茶<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/zhifubao.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/16/hreadLocal-原理和应用/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/06/Spring-Boot【干货系列】/" class="archive-article-date">
-  	<time datetime="2019-09-06T09:16:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-06</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/09/06/Spring-Boot【干货系列】/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring Boot【干货系列】</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/06/Spring-Boot【干货系列】/">Spring Boot【干货系列】</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring Boot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ThreadLocal是什么"><span class="toc-number">1.</span> <span class="toc-text">ThreadLocal是什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用Demo"><span class="toc-number">2.</span> <span class="toc-text">使用Demo</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Threadlocal实现原理"><span class="toc-number">3.</span> <span class="toc-text">Threadlocal实现原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ThreadLocal使用场景举例"><span class="toc-number">4.</span> <span class="toc-text">ThreadLocal使用场景举例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#小结："><span class="toc-number">5.</span> <span class="toc-text">小结：</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/05/pring-Boot【快速入门】/" class="archive-article-date">
-  	<time datetime="2019-09-05T05:41:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-05</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/05/pring-Boot【快速入门】/">Spring Boot【快速入门】</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring Boot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/04/DEA下创建Spring-Boot项目/" class="archive-article-date">
-  	<time datetime="2019-09-04T09:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/04/DEA下创建Spring-Boot项目/">使用IDEA工具搭建Spring Boot项目</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring Boot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/18/Github博客迁移Coding服务器/" class="archive-article-date">
-  	<time datetime="2019-07-18T09:06:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/18/Github博客迁移Coding服务器/">Github博客迁移至Coding服务器</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/13/Git下使用Hexo-Github搭建个人博客/" class="archive-article-date">
-  	<time datetime="2019-07-13T02:26:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/13/Git下使用Hexo-Github搭建个人博客/">Git下使用Hexo+Github搭建个人博客</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">搭建博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -411,8 +377,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
